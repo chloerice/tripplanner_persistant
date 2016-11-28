@@ -1,7 +1,7 @@
-var Sequelize = require('sequelize');
-var db = require('./_db');
+const Sequelize = require('sequelize');
+const db = require('./_db');
 
-var Place = db.define('place', {
+const Place = db.define('place', {
   address: Sequelize.STRING,
   city: Sequelize.STRING,
   state: Sequelize.STRING,

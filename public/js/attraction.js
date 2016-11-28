@@ -14,11 +14,11 @@
  * returns that object. That method is used principally in `options.js`.
  */
 
-var attractionModule = (function () {
+const attractionModule = (function () {
 
   // jQuery selections
 
-  var $itinerary, $hotel, $restaurants, $activities;
+  let $itinerary, $hotel, $restaurants, $activities;
   $(function(){
     $itinerary = $('#itinerary');
     $hotel = $itinerary.find('ul[data-type="hotel"]');
@@ -34,12 +34,12 @@ var attractionModule = (function () {
   }
 
   Attraction.prototype.buildItineraryItem = function () {
-    var $button = $('<button class="btn btn-xs btn-danger remove btn-circle">x</button>');
-    var $title = $('<span class="title"></span>').text(this.name);
+    const $button = $('<button class="btn btn-xs btn-danger remove btn-circle">x</button>');
+    const $title = $('<span class="title"></span>').text(this.name);
     this.$itineraryItem = $('<div class="itinerary-item"></div>')
       .append($title)
       .append($button);
-    var self = this;
+    const self = this;
     $button.on('click', function () {
       tripModule.removeFromCurrent(self); // remove from day model
     });
@@ -72,7 +72,7 @@ var attractionModule = (function () {
 
   // globally accessible module methods
 
-  var publicAPI = {
+  const publicAPI = {
 
     create: function (databaseAttraction) {
       return new Attraction(databaseAttraction);

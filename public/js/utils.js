@@ -6,7 +6,7 @@
  * through abstraction. It could easily be replaced by lodash.
  */
 
-var utilsModule = {
+const utilsModule = {
 
   // copies properties from source onto target object
   merge: function (source, target) {
@@ -24,7 +24,7 @@ var utilsModule = {
 
   // removes a given item from an array if it's inside it
   remove: function (array, item) {
-    var index = array.indexOf(item);
+    const index = array.indexOf(item);
     if (index === -1) return;
     return array.splice(index, 1);
   },

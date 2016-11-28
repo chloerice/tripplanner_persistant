@@ -13,11 +13,11 @@
  * This module has one public method: `.create()`, used by `days.js`.
  */
 
-var dayModule = (function () {
+const dayModule = (function () {
 
   // jQuery selections
 
-  var $dayButtons, $dayTitle;
+  let $dayButtons, $dayTitle;
   $(function () {
     $dayButtons = $('.day-buttons');
     $dayTitle = $('#day-title > span');
@@ -51,7 +51,7 @@ var dayModule = (function () {
   Day.prototype.buildButton = function () {
     this.$button = $('<button class="btn btn-circle day-btn"></button>')
       .text(this.number);
-    var self = this;
+    const self = this;
     this.$button.on('click', function (){
       this.blur(); // removes focus box from buttons
       tripModule.switchTo(self);
@@ -140,7 +140,7 @@ var dayModule = (function () {
 
   // globally accessible module methods
 
-  var publicAPI = {
+  const publicAPI = {
 
     create: function (databaseDay) {
       return new Day(databaseDay);

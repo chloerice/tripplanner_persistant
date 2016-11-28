@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
-var Sequelize = require('sequelize');
-var db = require('./_db');
-var Place = require('./place');
+const Sequelize = require('sequelize');
+const db = require('./_db');
+const Place = require('./place');
 
-var Hotel = db.define('hotel', {
+const Hotel = db.define('hotel', {
   name: Sequelize.STRING,
   num_stars: {
     type: Sequelize.INTEGER,
@@ -16,7 +16,7 @@ var Hotel = db.define('hotel', {
   },
   getterMethods: {
     type: function () {
-      return 'hotel'
+      return 'hotel';
     }
   }
 });

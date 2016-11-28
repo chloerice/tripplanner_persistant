@@ -15,16 +15,17 @@
  * which take `attraction` objects and pass them to `currentDay`.
  */
 
-var tripModule = (function () {
+const tripModule = (function () {
 
   // application state
 
-  var days = [],
+  let days = [],
       currentDay;
 
   // jQuery selections
 
-  var $addButton, $removeButton;
+  let $addButton,
+      $removeButton;
   $(function () {
     $addButton = $('#day-add');
     $removeButton = $('#day-title > button.remove');
@@ -51,9 +52,9 @@ var tripModule = (function () {
   // ~~~~~~~~~~~~~~~~~~~~~~~
     // `addDay` may need to take information now that we can persist days -- we want to display what is being sent from the DB
   // ~~~~~~~~~~~~~~~~~~~~~~~
-  function addDay () { 
+  function addDay () {
     if (this && this.blur) this.blur(); // removes focus box from buttons
-    var newDay = dayModule.create({ number: days.length + 1 }); // dayModule
+    const newDay = dayModule.create({ number: days.length + 1 }); // dayModule
     days.push(newDay);
     if (days.length === 1) {
       currentDay = newDay;
@@ -68,7 +69,7 @@ var tripModule = (function () {
     // prevent deleting last day
     if (days.length < 2 || !currentDay) return;
     // remove from the collection
-    var index = days.indexOf(currentDay),
+    const index = days.indexOf(currentDay),
       previousDay = days.splice(index, 1)[0],
       newCurrent = days[index] || days[index - 1];
     // fix the remaining day numbers
@@ -81,7 +82,7 @@ var tripModule = (function () {
 
   // globally accessible module methods
 
-  var publicAPI = {
+  const publicAPI = {
 
     load: function () {
 

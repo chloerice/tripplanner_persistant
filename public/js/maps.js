@@ -1,9 +1,9 @@
 'use strict';
 /* global google */
 
-var mapModule = (function () {
+const mapModule = (function () {
 
-  var currentMap,
+  let currentMap,
       currentMarkers = [],
       currentBounds = new google.maps.LatLngBounds(),
       GraceHopperAcademy = new google.maps.LatLng(40.705086, -74.009151);
@@ -11,8 +11,8 @@ var mapModule = (function () {
   // build and attach when document is ready
 
   $(function initializeMap (){
-    var mapCanvas = document.getElementById('map-canvas');
-    var options = {
+    const mapCanvas = document.getElementById('map-canvas');
+    const options = {
       center: GraceHopperAcademy,
       zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -47,17 +47,17 @@ var mapModule = (function () {
 
   // globally accessible module methods
 
-  var publicAPI = {
+  const publicAPI = {
 
     // mixing concerns here, but the attractions module was getting big
     buildAttractionMarker: function (attraction) {
-      var iconPath = {
+      const iconPath = {
         hotel: '/images/lodging_0star.png',
         restaurant: '/images/restaurant.png',
         activity: '/images/star-3.png'
       };
-      var coords = attraction.place.location;
-      var options = {
+      const coords = attraction.place.location;
+      const options = {
         icon: iconPath[attraction.type],
         position: new google.maps.LatLng(coords[0], coords[1]),
         animation: google.maps.Animation.DROP
@@ -89,7 +89,7 @@ var mapModule = (function () {
 
 // styles
 
-var styleArr = [{
+const styleArr = [{
   featureType: 'landscape',
   stylers: [{ saturation: -100 }, { lightness: 60 }]
 }, {

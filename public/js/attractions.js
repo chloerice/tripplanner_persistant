@@ -1,5 +1,5 @@
 'use strict';
-/* global $ attractionModule hotels restaurants activities */
+/* global $ attractionModule $hotels $restaurants $activities */
 
 /**
  * This module holds collection of enhanced attraction objects which can be
@@ -7,16 +7,16 @@
  * to add an attraction in the `options` module.
  */
 
-var attractionsModule = (function () {
+const attractionsModule = (function () {
 
 
   // ~~~~~~~~~~~~~~~~~~~~~~~
-    // These variables are not available until after the AJAX request succeeds in `options.js`. You definitely need to update something here!
+    // These constiables are not available until after the AJAX request succeeds in `options.js`. You definitely need to update something here!
   // ~~~~~~~~~~~~~~~~~~~~~~~
-  var enhanced = {
-    hotels: hotels.map(attractionModule.create),
+  const enhanced = {
+    hotels: .map(attractionModule.create),
     restaurants: restaurants.map(attractionModule.create),
-    activities: activities.map(attractionModule.create),
+    activities: activities.map(attractionModule.create)
   }
 
   // private helper methods (only available inside the module)
@@ -29,7 +29,7 @@ var attractionsModule = (function () {
 
   // globally accessible module methods (available to other modules)
 
-  var publicAPI = {
+  const publicAPI = {
 
     getByTypeAndId: function (type, id) {
       if (type === 'hotel') return findById(enhanced.hotels, id);
@@ -39,9 +39,9 @@ var attractionsModule = (function () {
     },
 
     getEnhanced: function (databaseAttraction) {
-      var type = databaseAttraction.type;
-      var id = databaseAttraction.id;
-      var found = publicAPI.getByTypeAndId(type, id);
+      const type = databaseAttraction.type;
+      const id = databaseAttraction.id;
+      const found = publicAPI.getByTypeAndId(type, id);
       if (found) return found;
       throw Error('enhanced version not found', databaseAttraction);
     }
